@@ -9,7 +9,7 @@ def get_query_itranvias(func, dato):
     if dato == None:
         response = requests.get(url=f"{BASE_URL}func={func}", headers=headers)
     else:
-        response = requests.get(url=f"{BASE_URL}func={func}&dato={dato}", headers=headers)
+        response = requests.get(url=f"{BASE_URL}func={func}&dato={dato}&mostrar=B", headers=headers)
 
     return response
 

@@ -30,12 +30,14 @@ def get_buses():
     return dict(sorted(buses.items()))
 
 def process_line(line_id, line_name, buses, lock):
-    response = get_query_itranvias(func=2, dato=line_id)
+    response = get_query_itranvias(func=99, dato=line_id)
     data = response.json()
-    for route in data.get("paradas", []):
-        for stop in route.get("paradas", []):
+    for route in data.get("mapas", []):
+        for stop in route.get("buses", []):
             for bus in stop.get("buses", []):
                 bus_id = bus["bus"]
+                posx = bus["posx"]
+                posy = bus["posy"]
                 with lock:
                     if bus_id not in buses:
-                        buses[bus_id] = {"line": line_name}
+                        buses[bus_id] = {"line": line_name, "position": {"posx": posx, "posy": posy}}
