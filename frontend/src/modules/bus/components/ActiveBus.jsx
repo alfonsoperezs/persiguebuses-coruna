@@ -7,12 +7,14 @@ import backend from '../../../backend';
 const ActiveBus = () => {
     const [loading, setLoading] = useState(true);
     const [buses, setBuses] = useState({});
+    const [totalBuses, setTotalBuses] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
 
     useEffect(() => {
         backend.buses.getBuses().then(data => {
             setBuses(data.buses);
+            setTotalBuses(data.total_buses);
             setLoading(false);
         });
     }, []);
@@ -38,41 +40,42 @@ const ActiveBus = () => {
         if(totalPages != 0){
             return(
                 <>
-                <Table className="container justify-content-center my-4" variant='dark'>
-                    <thead>
-                        <tr>
-                            <th scope='col'><FormattedMessage id='persiguebuses.bus.id'/></th>
-                            <th scope='col'><FormattedMessage id='persiguebuses.bus.line'/></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {currentItems.map(([id, info]) => (
-                            <tr key={id}>
-                                <td>{id}</td>
-                                <td>{info.line}</td>
+                    <h2 className="mb-3 text-white d-flex justify-content-center my-4"><FormattedMessage id="persiguebuses.bus.total" values={{totalBuses}}/></h2>
+                    <Table className="container justify-content-center my-4" variant='dark'>
+                        <thead>
+                            <tr>
+                                <th scope='col'><FormattedMessage id='persiguebuses.bus.id'/></th>
+                                <th scope='col'><FormattedMessage id='persiguebuses.bus.line'/></th>
                             </tr>
-                        ))}
-                    </tbody>
-                </Table>
-                <div className="d-flex justify-content-center">
-                    <button
-                        className="btn btn-secondary mx-2"
-                        onClick={() => setCurrentPage(p => Math.max(p - 1, 1))}
-                        disabled={currentPage === 1}
-                    >
-                        <FormattedMessage id="persiguebuses.pagination.previous"/>
-                    </button>
-                    <span className="align-self-center text-white">
-                        <FormattedMessage id="persiguebuses.pagination.page" /> {currentPage} / {totalPages}
-                    </span>
-                    <button
-                        className="btn btn-secondary mx-2"
-                        onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages))}
-                        disabled={currentPage === totalPages}
-                    >
-                        <FormattedMessage id="persiguebuses.pagination.next" />
-                    </button>
-                </div>
+                        </thead>
+                        <tbody>
+                            {currentItems.map(([id, info]) => (
+                                <tr key={id}>
+                                    <td>{id}</td>
+                                    <td>{info.line}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </Table>
+                    <div className="d-flex justify-content-center">
+                        <button
+                            className="btn btn-secondary mx-2"
+                            onClick={() => setCurrentPage(p => Math.max(p - 1, 1))}
+                            disabled={currentPage === 1}
+                        >
+                            <FormattedMessage id="persiguebuses.pagination.previous"/>
+                        </button>
+                        <span className="align-self-center text-white">
+                            <FormattedMessage id="persiguebuses.pagination.page" /> {currentPage} / {totalPages}
+                        </span>
+                        <button
+                            className="btn btn-secondary mx-2"
+                            onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages))}
+                            disabled={currentPage === totalPages}
+                        >
+                            <FormattedMessage id="persiguebuses.pagination.next" />
+                        </button>
+                    </div>
                 </>
             )
         } else{
