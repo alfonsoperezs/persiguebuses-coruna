@@ -1,9 +1,14 @@
+import Lang from './Lang'
+
 const Footer = () => {
     return(
-        <footer className="footer bg-body-tertiary text-center text-lg-start footer-custom">
-            <div className="text-center p-3 bg-danger">
-                © 2025 Persiguebuses
+        <footer className="footer footer-custom">
+            <div className="p-2 bg-danger d-flex justify-content-center gap-3">
+                <p>© 2025 Persiguebuses</p>
+                <p> - </p>
+                <Lang/>
             </div>
+            
         </footer>
     );
 }
