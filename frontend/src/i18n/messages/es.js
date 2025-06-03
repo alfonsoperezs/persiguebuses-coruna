@@ -1,4 +1,6 @@
 export default {
+    'persiguebuses.loading.message': 'Persiguiendo los buses...',
+
     'persiguebuses.nav.bus': 'Buses',
 
     'persiguebuses.home.text': 'Comprueba cuantos buses están circulando ahora',
