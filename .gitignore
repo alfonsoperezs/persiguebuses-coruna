@@ -194,3 +194,4 @@ cython_debug/
 .cursorindexingignore
 
 mock.txt
+data.sql
