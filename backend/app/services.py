@@ -1,5 +1,5 @@
-import threading
 from .itranvias import get_query_itranvias
+from models.bus import get_bus_by_id
 
 def get_lines():
     response = get_query_itranvias(func=1, dato=None)
@@ -26,3 +26,7 @@ def get_buses():
                 if bus["bus"] not in buses:
                     buses[bus["bus"]] = {"line" : line_name}
     return dict(sorted(buses.items()))
+
+def get_bus_details(id):
+    bus_details = get_bus_by_id(id)
+    return bus_details.to_dict()
