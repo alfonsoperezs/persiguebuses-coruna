@@ -55,6 +55,11 @@ const ActiveBus = () => {
                                     <td>{info.line}</td>
                                 </tr>
                             ))}
+                            {Array.from({ length: itemsPerPage - currentItems.length }).map((_, idx) => (
+                                <tr key={`empty-${idx}`}>
+                                    <td colSpan={2}>&nbsp;</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </Table>
                     <div className="d-flex justify-content-center">
