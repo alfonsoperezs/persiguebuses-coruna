@@ -12,9 +12,8 @@ def buses():
 def bus_details(id):
     return jsonify(get_bus_details(id))
 
-@bp.route("/buses/position")
-def bus_position():
-    bus_id = request.args.get("id")
+@bp.route("/buses/<id>/position")
+def bus_position(id):
     line = request.args.get("line")
-    return jsonify(get_bus_position(bus_id, line))
+    return jsonify(get_bus_position(id, line))
     
