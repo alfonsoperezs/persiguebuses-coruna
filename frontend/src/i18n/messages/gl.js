@@ -1,4 +1,5 @@
 export default {
+    'persiguebuses.common.backlink': 'Volver',
     'persiguebuses.loading.message': 'Perseguindo os buses...',
 
     'persiguebuses.nav.bus': 'Buses',
@@ -10,6 +11,13 @@ export default {
     'persiguebuses.bus.id': 'Id do bus',
     'persiguebuses.bus.line': 'Liña',
     'persiguebuses.bus.nobus': 'Polo momento non hai buses',
+    'persiguebuses.bus.detail.header': 'Detalles do bus número {id}',
+    'persiguebuses.bus.detail.plate': 'Matrícula',
+    'persiguebuses.bus.detail.model': 'Modelo',
+    'persiguebuses.bus.detail.type': 'Tipo de bus',
+    'persiguebuses.bus.detail.fuel': 'Combustible',
+    'persiguebuses.bus.detail.plateDate': 'Fecha de matriculación',
+    'persiguebuses.bus.detail.doors': 'Número de portas',
 
     'persiguebuses.pagination.previous': 'Anterior',
     'persiguebuses.pagination.next': 'Seguinte',

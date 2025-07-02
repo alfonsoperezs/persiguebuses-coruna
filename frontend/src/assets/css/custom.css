@@ -8,3 +8,17 @@
 body {
     background-color: black;
 }
+
+.bus-sum{
+    cursor: pointer;
+}
+
+.bus-sum:hover {
+    --bs-table-bg: #585858;
+}
+
+
+.leaflet-container {
+  height: 60vh;
+  width: 70%;
+}

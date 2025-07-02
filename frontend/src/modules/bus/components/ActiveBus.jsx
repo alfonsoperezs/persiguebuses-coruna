@@ -3,8 +3,10 @@ import Alert from 'react-bootstrap/Alert';
 import {FormattedMessage} from 'react-intl';
 import {useEffect, useState} from 'react';
 import backend from '../../../backend';
+import { useNavigate } from 'react-router-dom';
 
 const ActiveBus = () => {
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const [buses, setBuses] = useState({});
     const [totalBuses, setTotalBuses] = useState(0);
@@ -30,8 +32,8 @@ const ActiveBus = () => {
         return(
             <div className="d-flex flex-column align-items-center mt-5">
                 <h2 className="mb-3 text-white"><FormattedMessage id="persiguebuses.loading.message"/></h2>
-                <div class="spinner-border text-danger d-flex justify-content-center" role="status">
-                    <span class="visually-hidden">Loading...</span>
+                <div className="spinner-border text-danger d-flex justify-content-center" role="status">
+                    <span className="visually-hidden">Loading...</span>
                 </div>
             </div>
         )
@@ -50,7 +52,7 @@ const ActiveBus = () => {
                         </thead>
                         <tbody>
                             {currentItems.map(([id, info]) => (
-                                <tr key={id}>
+                                <tr key={id} onClick={() => navigate(`/details/${id}?line=${info.line}`)} className='bus-sum'>
                                     <td>{id}</td>
                                     <td>{info.line}</td>
                                 </tr>

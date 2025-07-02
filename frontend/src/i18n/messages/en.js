@@ -1,4 +1,5 @@
 export default {
+    'persiguebuses.common.backlink': 'Back',
     'persiguebuses.loading.message': 'Chasing buses...',
 
     'persiguebuses.nav.bus': 'Buses',
@@ -10,6 +11,13 @@ export default {
     'persiguebuses.bus.id': 'Bus Id',
     'persiguebuses.bus.line': 'Line',
     'persiguebuses.bus.nobus': 'No buses at the moment',
+    'persiguebuses.bus.detail.header': 'Bus {id} details',
+    'persiguebuses.bus.detail.plate': 'License plate',
+    'persiguebuses.bus.detail.model': 'Model',
+    'persiguebuses.bus.detail.type': 'Bus type',
+    'persiguebuses.bus.detail.fuel': 'Fuel',
+    'persiguebuses.bus.detail.plateDate': 'Plate date',
+    'persiguebuses.bus.detail.doors': 'Number of doors',
 
     'persiguebuses.pagination.previous': 'Previous',
     'persiguebuses.pagination.next': 'Next',
