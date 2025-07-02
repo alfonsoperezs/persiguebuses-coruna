@@ -46,7 +46,6 @@ def get_bus_position(bus_id, line):
             for buses in map['buses']:
                 for bus in buses['buses']:
                     id = bus['bus']
-                    print(id)
                     if int(id) == int(bus_id):
                         posx = bus['posx']
                         posy = bus['posy']
