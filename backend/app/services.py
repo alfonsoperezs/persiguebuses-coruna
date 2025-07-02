@@ -30,3 +30,25 @@ def get_buses():
 def get_bus_details(id):
     bus_details = get_bus_by_id(id)
     return bus_details.to_dict()
+
+def get_bus_position(bus_id, line):
+    lines = get_lines()
+
+    for key, value in lines.items():
+        if value == line:
+            line_id = key
+
+    response = get_query_itranvias(func=99, dato=line_id)
+
+    if response.ok:
+        data = response.json()
+        for map in data['mapas']:
+            for buses in map['buses']:
+                for bus in buses['buses']:
+                    id = bus['bus']
+                    print(id)
+                    if int(id) == int(bus_id):
+                        posx = bus['posx']
+                        posy = bus['posy']
+                        return {"bus": id, "position": {"pos_x": posx, "pos_y": posy}}
+                   
