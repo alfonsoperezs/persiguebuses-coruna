@@ -2,6 +2,8 @@
 
 Persiguebuses is a web aplication made in React and Flask to track the buses of [Tranvías Coruña](https://tranviascoruna.com/). 
 
+https://github.com/user-attachments/assets/98c0e877-ef28-4043-86bd-758961f83fe3
+
 ## Installation
 
 ### Backend
