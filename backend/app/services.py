@@ -1,7 +1,12 @@
 from .itranvias import get_query_itranvias
 from models.bus import get_bus_by_id
 
-def get_lines():
+def get_lines() -> dict:
+    """
+    Obtain all lines.
+
+    :returns: A dict with the line's id and name.
+    """
     response = get_query_itranvias(func=1, dato=None)
     if response.ok:
         data = response.json()
@@ -13,7 +18,12 @@ def get_lines():
     else:
         return {}
 
-def get_buses():
+def get_buses() -> dict:
+    """
+    Obtain all buses working at the moment.
+
+    :returns: A dict with the buses and the line where they are working.
+    """
     lines = get_lines()
     buses = {}
     bus_stop_list = [25, 87, 181, 115, 286, 424, 434]
@@ -27,11 +37,24 @@ def get_buses():
                     buses[bus["bus"]] = {"line" : line_name}
     return dict(sorted(buses.items()))
 
-def get_bus_details(id):
+def get_bus_details(id: int) -> dict:
+    """
+    Obtain details from a bus.
+
+    :param id: The bus id.
+    :returns: A dict with the bus details.
+    """
     bus_details = get_bus_by_id(id)
     return bus_details.to_dict()
 
-def get_bus_position(bus_id, line):
+def get_bus_position(bus_id: int, line: str) -> dict:
+    """
+    Obtain de actual position of a bus.
+
+    :param bus_id: The bus id.
+    :param line: The line name. Ex: 1A, 12...
+    :returns: A dict with the coordenates.
+    """
     lines = get_lines()
 
     for key, value in lines.items():

@@ -3,7 +3,8 @@ import random
 
 BASE_URL = "https://itranvias.com/queryitr_v3.php?"
 
-def get_query_itranvias(func, dato):
+def get_query_itranvias(func, dato) -> requests.Response:
+    """Make a HTTP request to itranvias.com."""
     headers = {"X-Forwarded-For": random_private_ip()}
 
     if dato == None:
@@ -14,24 +15,17 @@ def get_query_itranvias(func, dato):
 
 
 def random_private_ip() -> str:
-        """
-        Generates a random IPv4 address in one of these ranges: 10.0.0.0/8, 172.16.0.0/12 or 192.168.0.0/16
-        """
+    """
+    Generates a random IPv4 address in one of these ranges: 
+    
+    10.0.0.0/8, 172.16.0.0/12 or 192.168.0.0/16
+    """
+    
+    range_choice = random.choice(['10', '172', '192'])
 
-        # First octet
-        x1 = random.choice([10, 172, 192])
-
-        if x1 == 172:
-            # Second octet for 172.x.x.x
-            x2 = random.randint(16, 31)
-        else:
-            # Second octet for 10.x.x.x and 192.x.x.x
-            x2 = random.randint(0, 255)
-
-        # Third octet
-        x3 = random.randint(0, 255)
-        # Fourth octet
-        x4 = random.randint(0, 255)
-
-        # Get all the octets into a string
-        return ".".join(map(str, [x1, x2, x3, x4]))
+    if range_choice == 10:
+        return f"10.{random.randint(0,255)}.{random.randint(0,255)}.{random.randint(0,255)}"
+    elif range_choice == 172:
+        return f"172.{random.randint(16,31)}.{random.randint(0,255)}.{random.randint(0,255)}"
+    else:
+        return f"192.168.{random.randint(0,255)}.{random.randint(0,255)}"
