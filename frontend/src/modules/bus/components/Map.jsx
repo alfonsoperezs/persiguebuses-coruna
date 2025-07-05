@@ -1,15 +1,17 @@
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import { MapContainer, Marker, TileLayer} from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from "react";
-import backend from "../../../backend"
+import backend from "../../../backend";
+import { useParams, useSearchParams } from 'react-router-dom';
 
 
 const Map = () => {
     const [position, setPosition] = useState(null);
+    const {id} = useParams();
+    const [searchParams] = useSearchParams()
 
     useEffect(() => {
-        backend.buses.getBusPosition(393, 11).then(data =>{
-            console.log(data.position);
+        backend.buses.getBusPosition(id, searchParams.get('line')).then(data =>{
             setPosition(data.position);
         });
     }, []);
