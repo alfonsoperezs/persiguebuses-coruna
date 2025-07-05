@@ -2,6 +2,7 @@ import {FormattedMessage} from 'react-intl';
 import { useParams } from 'react-router-dom';
 import Details from './Details';
 import Map from './Map';
+import {BackButton} from '../../common'
 
 const BusDetails = () => {
     const {id} = useParams();
@@ -19,6 +20,10 @@ const BusDetails = () => {
                     </div>
                 </div>
             </div>
+            <div className='mt-5 d-flex justify-content-center'>
+                <BackButton/>
+            </div>
+            
         </div>
     )
 

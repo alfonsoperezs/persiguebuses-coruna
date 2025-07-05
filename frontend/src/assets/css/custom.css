@@ -19,6 +19,11 @@ body {
 
 
 .leaflet-container {
-  height: 60vh;
-  width: 70%;
+    height: 60vh;
+    width: 70%;
+}
+
+.error h3 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }

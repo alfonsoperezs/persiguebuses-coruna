@@ -3,16 +3,19 @@ import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from "react";
 import backend from "../../../backend";
 import { useParams, useSearchParams } from 'react-router-dom';
+import {Error} from '../../common'
 
 
 const Map = () => {
     const [position, setPosition] = useState(null);
+    const [error, setError] = useState(null);
     const {id} = useParams();
     const [searchParams] = useSearchParams()
 
     useEffect(() => {
         backend.buses.getBusPosition(id, searchParams.get('line')).then(data =>{
             setPosition(data.position);
+            setError(data.error);
         });
     }, []);
 
@@ -28,6 +31,12 @@ const Map = () => {
                 <Marker position={[position.pos_y, position.pos_x]}/>
             </MapContainer>
         );
+    }
+
+    if (error != null){
+        return(
+            <Error/>
+        )
     }
 }
 

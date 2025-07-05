@@ -2,9 +2,11 @@ import {FormattedMessage} from 'react-intl';
 import {useEffect, useState} from 'react';
 import backend from '../../../backend';
 import { useParams } from 'react-router-dom';
+import {Error} from '../../common'
 
 const Details = () => {
     const {id} = useParams();
+    const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [busDetails, setBusDetails] = useState({});
 
@@ -14,7 +16,13 @@ const Details = () => {
             setLoading(false);
         });
     }, []);
-    
+
+    if (busDetails.error){
+        return(
+            <Error/>
+        )
+    }    
+
     return(
         <dl className='w-50'>
             <dt className='text-white'><FormattedMessage id="persiguebuses.bus.detail.plate"/></dt>
