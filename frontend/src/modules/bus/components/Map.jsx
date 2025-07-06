@@ -35,7 +35,7 @@ const Map = () => {
 
     if (error != null){
         return(
-            <Error/>
+            <Error type='position'/>
         )
     }
 }

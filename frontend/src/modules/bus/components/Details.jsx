@@ -6,7 +6,6 @@ import {Error} from '../../common'
 
 const Details = () => {
     const {id} = useParams();
-    const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [busDetails, setBusDetails] = useState({});
 
@@ -19,7 +18,7 @@ const Details = () => {
 
     if (busDetails.error){
         return(
-            <Error/>
+            <Error type='details'/>
         )
     }    
 
