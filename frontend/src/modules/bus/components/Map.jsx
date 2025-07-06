@@ -3,22 +3,29 @@ import 'leaflet/dist/leaflet.css';
 import { useEffect, useState } from "react";
 import backend from "../../../backend";
 import { useParams, useSearchParams } from 'react-router-dom';
-import {Error} from '../../common'
+import {Error, Loading} from '../../common'
 
 
 const Map = () => {
     const [position, setPosition] = useState(null);
     const [error, setError] = useState(null);
     const {id} = useParams();
-    const [searchParams] = useSearchParams()
+    const [searchParams] = useSearchParams();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         backend.buses.getBusPosition(id, searchParams.get('line')).then(data =>{
             setPosition(data.position);
             setError(data.error);
+            setLoading(false);
         });
     }, []);
 
+    if (loading){
+        return(
+            <Loading type='loading'/>
+        )
+    }
     
 
     if (position != null){

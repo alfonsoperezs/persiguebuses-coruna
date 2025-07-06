@@ -2,7 +2,7 @@ import {FormattedMessage} from 'react-intl';
 import {useEffect, useState} from 'react';
 import backend from '../../../backend';
 import { useParams } from 'react-router-dom';
-import {Error} from '../../common'
+import {Error, Loading} from '../../common'
 
 const Details = () => {
     const {id} = useParams();
@@ -21,6 +21,12 @@ const Details = () => {
             <Error type='details'/>
         )
     }    
+
+    if (loading){
+        return(
+            <Loading type='loading'/>
+        )
+    }
 
     return(
         <dl className='w-50'>

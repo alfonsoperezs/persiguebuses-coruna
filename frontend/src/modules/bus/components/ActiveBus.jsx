@@ -4,6 +4,7 @@ import {FormattedMessage} from 'react-intl';
 import {useEffect, useState} from 'react';
 import backend from '../../../backend';
 import { useNavigate } from 'react-router-dom';
+import { Loading } from '../../common';
 
 const ActiveBus = () => {
     const navigate = useNavigate();
@@ -30,12 +31,7 @@ const ActiveBus = () => {
 
     if(loading){
         return(
-            <div className="d-flex flex-column align-items-center mt-5">
-                <h2 className="mb-3 text-white"><FormattedMessage id="persiguebuses.loading.message"/></h2>
-                <div className="spinner-border text-danger d-flex justify-content-center" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </div>
-            </div>
+            <Loading type='bus'/>
         )
         
     } else{
