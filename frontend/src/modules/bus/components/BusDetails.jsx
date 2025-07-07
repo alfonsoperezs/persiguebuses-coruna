@@ -11,7 +11,7 @@ const BusDetails = () => {
         <div>
             <h2 className='mb-3 text-white d-flex justify-content-center my-4'><FormattedMessage id="persiguebuses.bus.detail.header" values={{id}}/></h2>
             <div className='container pt-5'>
-                <div className='row'>
+                <div className='row d-none d-md-flex'>
                     <div className='col d-flex justify-content-center align-items-center'>
                         <Details/>
                     </div>
@@ -19,11 +19,19 @@ const BusDetails = () => {
                         <Map/>
                     </div>
                 </div>
+
+                <div className='d-md-none'>
+                    <div className='d-flex justify-content-center align-items-center'>
+                        <Details/>
+                    </div>
+                    <div className='d-flex justify-content-center'>
+                        <Map/>
+                    </div>
+                </div>
             </div>
-            <div className='mt-5 d-flex justify-content-center'>
+            <div className='d-flex justify-content-center mt-4'>
                 <BackButton/>
             </div>
-            
         </div>
     )
 

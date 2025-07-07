@@ -38,8 +38,8 @@ const ActiveBus = () => {
         if(totalPages != 0){
             return(
                 <>
-                    <h2 className="mb-3 text-white d-flex justify-content-center my-4"><FormattedMessage id="persiguebuses.bus.total" values={{totalBuses}}/></h2>
-                    <Table className="container justify-content-center my-4" variant='dark'>
+                    <h2 className="text-white my-4 text-center"><FormattedMessage id="persiguebuses.bus.total" values={{totalBuses}}/></h2>
+                    <Table className="container justify-content-center" variant='dark'>
                         <thead>
                             <tr>
                                 <th scope='col'><FormattedMessage id='persiguebuses.bus.id'/></th>

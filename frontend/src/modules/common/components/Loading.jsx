@@ -4,10 +4,10 @@ const Loading = ({type}) => {
     const idMessage = `persiguebuses.loading.${type}`;
 
     return(
-        <div className="d-flex flex-column align-items-center mt-5">
-            <h2 className="mb-3 text-white"><FormattedMessage id={idMessage}/></h2>
-            <div className="spinner-border text-danger d-flex justify-content-center" role="status">
-                <span className="visually-hidden">Loading...</span>
+        <div className='m-height d-flex flex-column align-items-center justify-content-center'>
+            <h2 className="mb-5 text-white text-center"><FormattedMessage id={idMessage}/></h2>
+            <div className='d-flex justify-content-center'>
+                <div className="spinner-border text-danger" role="status"></div>
             </div>
         </div>
     )
