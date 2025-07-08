@@ -8,29 +8,31 @@ const BusDetails = () => {
     const {id} = useParams();
 
     return(
-        <div>
-            <h2 className='mb-3 text-white d-flex justify-content-center my-4'><FormattedMessage id="persiguebuses.bus.detail.header" values={{id}}/></h2>
-            <div className='container pt-3'>
-                <div className='row d-none d-md-flex'>
-                    <div className='col d-flex justify-content-center align-items-center'>
-                        <Details/>
+        <div className='d-flex justify-content-center align-items-center m-height'>
+            <div className='w-100'>
+                <h2 className='text-white d-flex justify-content-center mb-3'><FormattedMessage id="persiguebuses.bus.detail.header" values={{id}}/></h2>
+                <div className='container pt-3'>
+                    <div className='row d-none d-md-flex'>
+                        <div className='col d-flex justify-content-center align-items-center'>
+                            <Details/>
+                        </div>
+                        <div className='col d-flex justify-content-center'>
+                            <Map/>
+                        </div>
                     </div>
-                    <div className='col d-flex justify-content-center'>
-                        <Map/>
-                    </div>
-                </div>
 
-                <div className='d-md-none'>
-                    <div className='d-flex justify-content-center align-items-center'>
-                        <Details/>
-                    </div>
-                    <div className='d-flex justify-content-center'>
-                        <Map/>
+                    <div className='d-md-none'>
+                        <div className='d-flex justify-content-center align-items-center'>
+                            <Details/>
+                        </div>
+                        <div className='d-flex justify-content-center'>
+                            <Map/>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className='d-flex justify-content-center mt-4'>
-                <BackButton/>
+                <div className='d-flex justify-content-center mt-4'>
+                    <BackButton/>
+                </div>
             </div>
         </div>
     )
