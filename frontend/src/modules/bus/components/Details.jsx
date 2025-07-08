@@ -24,12 +24,14 @@ const Details = () => {
 
     if (loading){
         return(
-            <Loading type='loading'/>
+            <div className='my-5'>
+                <Loading type='loading'/>
+            </div>
         )
     }
 
     return(
-        <dl className='w-50'>
+        <dl>
             <dt className='text-white'><FormattedMessage id="persiguebuses.bus.detail.plate"/></dt>
             <dl className='text-white'>{busDetails.number_plate}</dl>
             <dt className='text-white'><FormattedMessage id="persiguebuses.bus.detail.model"/></dt>

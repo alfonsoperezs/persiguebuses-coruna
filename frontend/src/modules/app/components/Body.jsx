@@ -4,13 +4,13 @@ import Home from './Home';
 
 const Body = () => {
     return(
-        <div>
+        <main className='mt-3 mb-3'>
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/bus' element={<ActiveBus/>}/>
                 <Route path='/details/:id' element={<BusDetails/>}/>
             </Routes>
-        </div>
+        </main>
     )
 }
 

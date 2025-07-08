@@ -31,15 +31,18 @@ const ActiveBus = () => {
 
     if(loading){
         return(
-            <Loading type='bus'/>
+            <div className='m-height d-flex align-items-center justify-content-center'>
+                <Loading type='bus'/>
+            </div>
         )
         
     } else{
+        // and if error
         if(totalPages != 0){
             return(
-                <>
-                    <h2 className="mb-3 text-white d-flex justify-content-center my-4"><FormattedMessage id="persiguebuses.bus.total" values={{totalBuses}}/></h2>
-                    <Table className="container justify-content-center my-4" variant='dark'>
+                <div className='d-flex align-items-center justify-content-center flex-column m-height gap-3 mx-2'>
+                    <h2 className="text-white text-center"><FormattedMessage id="persiguebuses.bus.total" values={{totalBuses}}/></h2>
+                    <Table className="container justify-content-center" variant='dark'>
                         <thead>
                             <tr>
                                 <th scope='col'><FormattedMessage id='persiguebuses.bus.id'/></th>
@@ -79,7 +82,7 @@ const ActiveBus = () => {
                             <FormattedMessage id="persiguebuses.pagination.next" />
                         </button>
                     </div>
-                </>
+                </div>
             )
         } else{
             return(
