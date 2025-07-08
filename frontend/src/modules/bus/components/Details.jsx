@@ -24,7 +24,9 @@ const Details = () => {
 
     if (loading){
         return(
-            <Loading type='loading'/>
+            <div className='my-5'>
+                <Loading type='loading'/>
+            </div>
         )
     }
 

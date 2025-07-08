@@ -10,7 +10,7 @@ const BusDetails = () => {
     return(
         <div>
             <h2 className='mb-3 text-white d-flex justify-content-center my-4'><FormattedMessage id="persiguebuses.bus.detail.header" values={{id}}/></h2>
-            <div className='container pt-5'>
+            <div className='container pt-3'>
                 <div className='row d-none d-md-flex'>
                     <div className='col d-flex justify-content-center align-items-center'>
                         <Details/>

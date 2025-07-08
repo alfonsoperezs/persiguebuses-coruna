@@ -31,35 +31,40 @@ const ActiveBus = () => {
 
     if(loading){
         return(
-            <Loading type='bus'/>
+            <div className='m-height d-flex align-items-center justify-content-center'>
+                <Loading type='bus'/>
+            </div>
         )
         
     } else{
+        // and if error
         if(totalPages != 0){
             return(
                 <>
                     <h2 className="text-white my-4 text-center"><FormattedMessage id="persiguebuses.bus.total" values={{totalBuses}}/></h2>
-                    <Table className="container justify-content-center" variant='dark'>
-                        <thead>
-                            <tr>
-                                <th scope='col'><FormattedMessage id='persiguebuses.bus.id'/></th>
-                                <th scope='col'><FormattedMessage id='persiguebuses.bus.line'/></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {currentItems.map(([id, info]) => (
-                                <tr key={id} onClick={() => navigate(`/details/${id}?line=${info.line}`)} className='bus-sum'>
-                                    <td>{id}</td>
-                                    <td>{info.line}</td>
+                    <div className='mx-2'>
+                        <Table className="container justify-content-center" variant='dark'>
+                            <thead>
+                                <tr>
+                                    <th scope='col'><FormattedMessage id='persiguebuses.bus.id'/></th>
+                                    <th scope='col'><FormattedMessage id='persiguebuses.bus.line'/></th>
                                 </tr>
-                            ))}
-                            {Array.from({ length: itemsPerPage - currentItems.length }).map((_, idx) => (
-                                <tr key={`empty-${idx}`}>
-                                    <td colSpan={2}>&nbsp;</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </Table>
+                            </thead>
+                            <tbody>
+                                {currentItems.map(([id, info]) => (
+                                    <tr key={id} onClick={() => navigate(`/details/${id}?line=${info.line}`)} className='bus-sum'>
+                                        <td>{id}</td>
+                                        <td>{info.line}</td>
+                                    </tr>
+                                ))}
+                                {Array.from({ length: itemsPerPage - currentItems.length }).map((_, idx) => (
+                                    <tr key={`empty-${idx}`}>
+                                        <td colSpan={2}>&nbsp;</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table>
+                    </div>
                     <div className="d-flex justify-content-center">
                         <button
                             className="btn btn-secondary mx-2"
