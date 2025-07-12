@@ -2,6 +2,7 @@ export default {
     'persiguebuses.common.error.details': 'Detalles del bus no disponibles',
     'persiguebuses.common.error.position': 'Posición del bus no disponible',
     'persiguebuses.common.backlink': 'Volver',
+    'persiguebuses.common.refresh': 'Actualizar',
     'persiguebuses.loading.bus': 'Persiguiendo los buses...',
     'persiguebuses.loading.loading': 'Cargando',
 
