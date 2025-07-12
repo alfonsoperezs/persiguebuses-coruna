@@ -12,26 +12,14 @@ const BusDetails = () => {
             <div className='w-100'>
                 <h2 className='text-white d-flex justify-content-center mb-3'><FormattedMessage id="persiguebuses.bus.detail.header" values={{id}}/></h2>
                 <div className='container pt-3'>
-                    <div className='row d-none d-md-flex'>
-                        <div className='col d-flex justify-content-center align-items-center'>
+                    <div className='row flex-column flex-md-row'>
+                        <div className='col d-flex justify-content-center align-items-center mb-3 mb-md-0'>
                             <Details/>
                         </div>
                         <div className='col d-flex justify-content-center'>
                             <Map/>
                         </div>
                     </div>
-
-                    <div className='d-md-none'>
-                        <div className='d-flex justify-content-center align-items-center'>
-                            <Details/>
-                        </div>
-                        <div className='d-flex justify-content-center'>
-                            <Map/>
-                        </div>
-                    </div>
-                </div>
-                <div className='d-flex justify-content-center mt-4'>
-                    <BackButton/>
                 </div>
             </div>
         </div>
