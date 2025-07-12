@@ -15,11 +15,22 @@ const ActiveBus = () => {
     const itemsPerPage = 10;
 
     useEffect(() => {
-        backend.buses.getBuses().then(data => {
+        const cached = sessionStorage.getItem('buses');
+
+        if (cached) {
+            const data = JSON.parse(cached);
             setBuses(data.buses);
             setTotalBuses(data.total_buses);
             setLoading(false);
-        });
+        } else {
+            backend.buses.getBuses().then(data => {
+                sessionStorage.setItem('buses', JSON.stringify(data));
+                setBuses(data.buses);
+                setTotalBuses(data.total_buses);
+                setLoading(false);
+            });
+        }
+
     }, []);
 
     const busEntries = Object.entries(buses);
