@@ -4,23 +4,43 @@ import {FormattedMessage} from 'react-intl';
 import {useEffect, useState} from 'react';
 import backend from '../../../backend';
 import { useNavigate } from 'react-router-dom';
-import { Loading } from '../../common';
+import { Loading, RefreshButton } from '../../common';
 
 const ActiveBus = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const [buses, setBuses] = useState({});
     const [totalBuses, setTotalBuses] = useState(0);
+    const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
+    const [reload, setReload] = useState(0)
     const itemsPerPage = 10;
 
     useEffect(() => {
-        backend.buses.getBuses().then(data => {
+        const cached = sessionStorage.getItem('buses');
+
+        if (cached) {
+            const data = JSON.parse(cached);
             setBuses(data.buses);
             setTotalBuses(data.total_buses);
             setLoading(false);
-        });
-    }, []);
+        } else {
+            backend.buses.getBuses().then(data => {
+                sessionStorage.setItem('buses', JSON.stringify(data));
+                setBuses(data.buses);
+                setTotalBuses(data.total_buses);
+                setError(data.error);
+                setLoading(false);
+            });
+        }
+
+    }, [reload]);
+
+    const refresh = () => {
+        sessionStorage.removeItem('buses');
+        setLoading(true);
+        setReload(prev => prev + 1);
+    }
 
     const busEntries = Object.entries(buses);
     const totalPages = Math.ceil(busEntries.length / itemsPerPage);
@@ -38,10 +58,11 @@ const ActiveBus = () => {
         
     } else{
         // and if error
-        if(totalPages != 0){
+        if(totalPages != 0 && error == null){
             return(
                 <div className='d-flex align-items-center justify-content-center flex-column m-height gap-3 mx-2'>
                     <h2 className="text-white text-center"><FormattedMessage id="persiguebuses.bus.total" values={{totalBuses}}/></h2>
+                    <RefreshButton refreshAction={refresh}/>
                     <Table className="container justify-content-center" variant='dark'>
                         <thead>
                             <tr>

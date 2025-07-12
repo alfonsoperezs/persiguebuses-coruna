@@ -2,6 +2,7 @@ export default {
     'persiguebuses.common.error.details': 'Bus details no available',
     'persiguebuses.common.error.position': 'Bus position no available',
     'persiguebuses.common.backlink': 'Back',
+    'persiguebuses.common.refresh': 'Refresh',
     'persiguebuses.loading.bus': 'Chasing buses...',
     'persiguebuses.loading.loading': 'Loading',
 
