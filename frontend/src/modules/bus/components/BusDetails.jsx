@@ -21,6 +21,9 @@ const BusDetails = () => {
                         </div>
                     </div>
                 </div>
+                <div className='d-flex justify-content-center mt-4'>
+                    <BackButton/>
+                </div>
             </div>
         </div>
     )
