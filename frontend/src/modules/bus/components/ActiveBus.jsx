@@ -48,7 +48,7 @@ const ActiveBus = () => {
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
     );
-
+    
     if(loading){
         return(
             <div className='m-height d-flex align-items-center justify-content-center'>
@@ -57,7 +57,6 @@ const ActiveBus = () => {
         )
         
     } else{
-        // and if error
         if(totalPages != 0 && error == null){
             return(
                 <div className='d-flex align-items-center justify-content-center flex-column m-height gap-3 mx-2'>
@@ -107,7 +106,10 @@ const ActiveBus = () => {
             )
         } else{
             return(
-                <Alert className='container justify-content-center my-4' variant='light'><FormattedMessage id='persiguebuses.bus.nobus' /></Alert>
+                <div className='d-flex align-items-center justify-content-center flex-column m-height gap-3 mx-2'>
+                    <Alert className='container justify-content-center my-4' variant='light'><FormattedMessage id='persiguebuses.bus.nobus' /></Alert>
+                    <RefreshButton refreshAction={refresh}/>
+                </div>
             )
         }
 
