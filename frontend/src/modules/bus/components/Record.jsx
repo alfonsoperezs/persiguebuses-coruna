@@ -32,8 +32,8 @@ const Record = () => {
             <Table variant='dark'>
                 <thead>
                     <tr>
-                        <th scope='col' className='text-center'><FormattedMessage id='persiguebuses.bus.line'/></th>
-                        <th scope='col' className='text-center'><FormattedMessage id='persiguebuses.bus.detail.record.last'/></th>
+                        <th style={{ width: '50%' }} scope='col' className='text-center'><FormattedMessage id='persiguebuses.bus.line'/></th>
+                        <th style={{ width: '50%' }} scope='col' className='text-center'><FormattedMessage id='persiguebuses.bus.detail.record.last'/></th>
                     </tr>
                 </thead>
                 <tbody>
