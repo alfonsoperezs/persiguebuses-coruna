@@ -22,6 +22,7 @@ export default {
     'persiguebuses.bus.detail.fuel': 'Fuel',
     'persiguebuses.bus.detail.plateDate': 'Plate date',
     'persiguebuses.bus.detail.doors': 'Number of doors',
+    'persiguebuses.bus.detail.record.last': 'Last time',
 
     'persiguebuses.pagination.previous': 'Previous',
     'persiguebuses.pagination.next': 'Next',

@@ -22,6 +22,7 @@ export default {
     'persiguebuses.bus.detail.fuel': 'Combustible',
     'persiguebuses.bus.detail.plateDate': 'Fecha de matriculación',
     'persiguebuses.bus.detail.doors': 'Número de portas',
+    'persiguebuses.bus.detail.record.last': 'Última vez',
 
     'persiguebuses.pagination.previous': 'Anterior',
     'persiguebuses.pagination.next': 'Seguinte',

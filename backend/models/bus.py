@@ -53,11 +53,11 @@ class Bus():
 
 
 
-def get_bus_by_id(id: int) -> Bus:
+def get_bus_by_id(bus_id: int) -> Bus:
     """
     Obtain bus details by id from database.
 
-    :param id: The bus id.
+    :param bus_id: The bus id.
     :returns: A `Bus` object with the details.
     """
 
@@ -66,7 +66,7 @@ def get_bus_by_id(id: int) -> Bus:
 
     sql = "SELECT * FROM bus WHERE id = %s;"
     
-    cursor.execute(sql, (id,))
+    cursor.execute(sql, (bus_id,))
     result = cursor.fetchone()
     
     disconnect(connection)

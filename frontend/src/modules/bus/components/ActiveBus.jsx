@@ -62,18 +62,18 @@ const ActiveBus = () => {
                 <div className='d-flex align-items-center justify-content-center flex-column m-height gap-3 mx-2'>
                     <h2 className="text-white text-center"><FormattedMessage id="persiguebuses.bus.total" values={{totalBuses}}/></h2>
                     <RefreshButton refreshAction={refresh}/>
-                    <Table className="container justify-content-center" variant='dark'>
+                    <Table className="container" variant='dark'>
                         <thead>
                             <tr>
-                                <th scope='col'><FormattedMessage id='persiguebuses.bus.id'/></th>
-                                <th scope='col'><FormattedMessage id='persiguebuses.bus.line'/></th>
+                                <th style={{ width: '50%' }} scope='col' className='text-center'><FormattedMessage id='persiguebuses.bus.id'/></th>
+                                <th style={{ width: '50%' }} scope='col' className='text-center'><FormattedMessage id='persiguebuses.bus.line'/></th>
                             </tr>
                         </thead>
                         <tbody>
                             {currentItems.map(([id, info]) => (
                                 <tr key={id} onClick={() => navigate(`/details/${id}?line=${info.line}`)} className='bus-sum'>
-                                    <td>{id}</td>
-                                    <td>{info.line}</td>
+                                    <td className='text-center'>{id}</td>
+                                    <td className='text-center'>{info.line}</td>
                                 </tr>
                             ))}
                             {Array.from({ length: itemsPerPage - currentItems.length }).map((_, idx) => (
