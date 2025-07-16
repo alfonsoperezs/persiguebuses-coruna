@@ -8,7 +8,7 @@ export default {
 
     'persiguebuses.nav.bus': 'Buses',
 
-    'persiguebuses.home.text': 'Comprueba cuantos buses están circulando ahora',
+    'persiguebuses.home.text': 'Comprueba cuántos buses están circulando ahora',
     'persiguebuses.home.button': 'Persíguelos',
 
     'persiguebuses.bus.total': 'Hay {totalBuses} buses circulando en este momento',
@@ -22,6 +22,7 @@ export default {
     'persiguebuses.bus.detail.fuel': 'Combustible',
     'persiguebuses.bus.detail.plateDate': 'Fecha de matriculación',
     'persiguebuses.bus.detail.doors': 'Número de puertas',
+    'persiguebuses.bus.detail.record.last': 'Última vez',
 
     'persiguebuses.pagination.previous': 'Anterior',
     'persiguebuses.pagination.next': 'Siguiente',
