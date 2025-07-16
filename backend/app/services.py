@@ -1,5 +1,6 @@
 from .itranvias import get_query_itranvias
 from models.bus import get_bus_by_id
+from models.line_record import get_record
 
 def get_lines() -> dict:
     """
@@ -89,3 +90,14 @@ def get_bus_position(bus_id: int, line: str) -> dict:
     except:
         return {"error": f"No available position for {bus_id} bus."}
                    
+def get_bus_record(bus_id: int) -> dict:
+    """
+    Obtain all lines where the bus has worked.
+    
+    :param bus_id: The bus id.
+    :returns: A list with the lines.
+    """
+    try:
+        return {"record": get_record(bus_id)}
+    except:
+        return {"Error": f"No available record for {bus_id} bus."}
