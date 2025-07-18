@@ -8,6 +8,14 @@ def get_lines() -> dict:
 
     :returns: A dict with the line's id and name.
     """
+
+    special_cases = {
+        2451: "UDC-M",
+        2452: "UDC-E",
+        1801: "BUI",
+        3300: "E"
+    }
+
     try:
         response = get_query_itranvias(func=1, dato=None)
         if response.ok:
@@ -16,11 +24,12 @@ def get_lines() -> dict:
             for line in data["lineas"]:
                 line_id = int(line["id"])
                 lines[line_id] = line["nom_comer"]
+            lines.update(special_cases)    
             return lines
         else:
             return {}
     except:
-        return {}
+        return special_cases.copy()
 
 def get_buses() -> dict:
     """
@@ -101,3 +110,4 @@ def get_bus_record(bus_id: int) -> dict:
         return {"record": get_record(bus_id)}
     except:
         return {"Error": f"No available record for {bus_id} bus."}
+    
