@@ -14,6 +14,10 @@ const Record = () => {
         backend.buses.getBusRecord(id).then(data =>{
             setRecord(data.record);
             setLoading(false);
+        }).catch(() => {
+            // En caso de fallo de red o error inesperado
+            setRecord([]);
+            setLoading(false);    
         });
     }, []);
 
@@ -23,6 +27,10 @@ const Record = () => {
         )
     }
 
+    if (!record || record.length === 0) {
+        return <Error type='record' />;
+    }
+    
     if (record.error){
         return(
             <Error type='position'/>
