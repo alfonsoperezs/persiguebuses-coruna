@@ -1,6 +1,6 @@
-# Persiguebuses
+# Persiguebuses Coruña
 
-Persiguebuses is a web aplication made in React and Flask to track the buses of [Tranvías Coruña](https://tranviascoruna.com/). 
+Persiguebuses Coruña is a web aplication made in React and Flask to track the buses of [Tranvías Coruña](https://tranviascoruna.com/). 
 
 https://github.com/user-attachments/assets/8feb4fd1-b875-4d29-a5f3-9cb7f0247758
 
