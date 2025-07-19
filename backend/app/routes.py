@@ -6,7 +6,12 @@ bp = Blueprint("main", __name__)
 @bp.route("/buses")
 def buses():
     buses = get_buses()
-    return jsonify({"total_buses": len(buses), "buses": buses})
+    return jsonify({
+        "buses": buses,
+        "total_buses": len(buses),
+        "articulados": sum(1 for b in buses.values() if b.get("type") == "Articulado"),
+        "rigidos": sum(1 for b in buses.values() if b.get("type") == "Rígido")
+    })
 
 @bp.route("/buses/<id>")
 def bus_details(id):
