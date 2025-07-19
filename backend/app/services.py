@@ -1,5 +1,5 @@
 from .itranvias import get_query_itranvias
-from models.bus import get_bus_by_id
+from models.bus import get_bus_by_id, get_bus_types
 from models.line_record import get_record
 
 def get_lines() -> dict:
@@ -38,17 +38,22 @@ def get_buses() -> dict:
     :returns: A dict with the buses and the line where they are working.
     """
     lines = get_lines()
+    bus_types = get_bus_types()
     buses = {}
     bus_stop_list = [25, 87, 181, 115, 286, 424, 434] # Minimun stops to catch buses from all lines.
 
     try:
         for bus_stop in bus_stop_list:
             data = get_query_itranvias(func=0, dato=bus_stop).json()
-            for line in data["buses"].get("lineas", {}):
-                line_name = lines.get(line["linea"], "Uknown")
+            for line in data["buses"].get("lineas", []):
+                line_name = lines.get(line["linea"], "Unknown")
                 for bus in line.get("buses", []):
-                    if bus["bus"] not in buses:
-                        buses[bus["bus"]] = {"line" : line_name}
+                    bus_number = bus["bus"]
+                    if bus_number not in buses:
+                        buses[bus_number] = {
+                            "line": line_name,
+                            "type": bus_types.get(bus_number, "Unknown")
+                        }
         return dict(sorted(buses.items()))
     except:
         return {"error": "No available buses at the moment"}
