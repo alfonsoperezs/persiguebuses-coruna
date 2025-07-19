@@ -13,7 +13,10 @@ export default {
     'persiguebuses.home.button': 'Chase them',
 
     'persiguebuses.bus.total': 'There is {totalBuses} buses working at the moment',
+    'persiguebuses.bus.articulados': 'Articulated: {count}',
+    'persiguebuses.bus.rigidos': 'Rigid: {count}',
     'persiguebuses.bus.id': 'Bus Id',
+    'persiguebuses.bus.type': 'Type',
     'persiguebuses.bus.line': 'Line',
     'persiguebuses.bus.nobus': 'No buses at the moment',
     'persiguebuses.bus.detail.header': 'Bus {id} details',

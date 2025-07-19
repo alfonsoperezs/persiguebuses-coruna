@@ -13,7 +13,10 @@ export default {
     'persiguebuses.home.button': 'Persígueos',
 
     'persiguebuses.bus.total': 'Hai {totalBuses} buses circulando neste momento',
+    'persiguebuses.bus.articulados': 'Articulados: {count}',
+    'persiguebuses.bus.rigidos': 'Ríxidos: {count}',
     'persiguebuses.bus.id': 'Id do bus',
+    'persiguebuses.bus.type': 'Tipo',
     'persiguebuses.bus.line': 'Liña',
     'persiguebuses.bus.nobus': 'Polo momento non hai buses',
     'persiguebuses.bus.detail.header': 'Detalles do bus número {id}',
@@ -21,7 +24,7 @@ export default {
     'persiguebuses.bus.detail.model': 'Modelo',
     'persiguebuses.bus.detail.type': 'Tipo de bus',
     'persiguebuses.bus.detail.fuel': 'Combustible',
-    'persiguebuses.bus.detail.plateDate': 'Fecha de matriculación',
+    'persiguebuses.bus.detail.plateDate': 'Data de matriculación',
     'persiguebuses.bus.detail.doors': 'Número de portas',
     'persiguebuses.bus.detail.record.last': 'Última vez',
 
