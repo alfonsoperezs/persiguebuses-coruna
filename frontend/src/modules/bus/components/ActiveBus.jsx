@@ -11,6 +11,8 @@ const ActiveBus = () => {
     const [loading, setLoading] = useState(true);
     const [buses, setBuses] = useState({});
     const [totalBuses, setTotalBuses] = useState(0);
+    const [articulados, setArticulados] = useState(0);
+    const [rigidos, setRigidos] = useState(0);
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [reload, setReload] = useState(0)
@@ -29,6 +31,8 @@ const ActiveBus = () => {
                 sessionStorage.setItem('buses', JSON.stringify(data));
                 setBuses(data.buses);
                 setTotalBuses(data.total_buses);
+                setArticulados(data.articulados);
+                setRigidos(data.rigidos);
                 setError(data.error);
                 setLoading(false);
             });
@@ -61,24 +65,30 @@ const ActiveBus = () => {
             return(
                 <div className='d-flex align-items-center justify-content-center flex-column m-height gap-3 mx-2'>
                     <h2 className="text-white text-center"><FormattedMessage id="persiguebuses.bus.total" values={{totalBuses}}/></h2>
+                    <h6 className="text-white text-center" style={{ fontWeight: 'normal', marginTop: '0.3rem' }}>
+                    <FormattedMessage id="persiguebuses.bus.articulados" values={{count: articulados}} /> &nbsp;|&nbsp; 
+                    <FormattedMessage id="persiguebuses.bus.rigidos" values={{count: rigidos}} />
+                    </h6>
                     <RefreshButton refreshAction={refresh}/>
                     <Table className="container" variant='dark'>
                         <thead>
                             <tr>
-                                <th style={{ width: '50%' }} scope='col' className='text-center'><FormattedMessage id='persiguebuses.bus.id'/></th>
-                                <th style={{ width: '50%' }} scope='col' className='text-center'><FormattedMessage id='persiguebuses.bus.line'/></th>
+                                <th style={{ width: '33%' }} scope='col' className='text-center'><FormattedMessage id='persiguebuses.bus.id'/></th>
+                                <th style={{ width: '33%' }} scope='col' className='text-center'><FormattedMessage id='persiguebuses.bus.type'/></th>
+                                <th style={{ width: '33%' }} scope='col' className='text-center'><FormattedMessage id='persiguebuses.bus.line'/></th>
                             </tr>
                         </thead>
                         <tbody>
                             {currentItems.map(([id, info]) => (
                                 <tr key={id} onClick={() => navigate(`/details/${id}?line=${info.line}`)} className='bus-sum'>
                                     <td className='text-center'>{id}</td>
+                                    <td className='text-center'>{info.type}</td>
                                     <td className='text-center'>{info.line}</td>
                                 </tr>
                             ))}
                             {Array.from({ length: itemsPerPage - currentItems.length }).map((_, idx) => (
                                 <tr key={`empty-${idx}`}>
-                                    <td colSpan={2}>&nbsp;</td>
+                                    <td colSpan={3}>&nbsp;</td>
                                 </tr>
                             ))}
                         </tbody>
