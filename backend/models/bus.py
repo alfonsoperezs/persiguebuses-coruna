@@ -77,3 +77,24 @@ def get_bus_by_id(bus_id: int) -> Bus:
     id, number_plate, model, bus_type, number_of_doors, registration_date, fuel_type = result
     
     return Bus(id, number_plate, model, bus_type, number_of_doors, registration_date, fuel_type)
+
+def get_bus_types() -> dict:
+    """
+    Obtain all buses and their type from database.
+
+    :returns: A dict with bus id as key and bus_type as value.
+    """
+    connection = connect()
+    cursor = connection.cursor()
+
+    sql = "SELECT id, tipo FROM bus;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+
+    disconnect(connection)
+
+    bus_types = {}
+    for bus_id, bus_type in results:
+        bus_types[bus_id] = bus_type
+
+    return bus_types
