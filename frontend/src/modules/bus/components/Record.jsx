@@ -26,7 +26,7 @@ const Record = ({setLoading}) => {
   const visibles = showAll ? record : record.slice(0, 3);
 
   return (
-    <>
+    <div className='mb-3'>
       <Table variant='dark'>
         <thead>
           <tr>
@@ -65,7 +65,7 @@ const Record = ({setLoading}) => {
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
