@@ -28,7 +28,7 @@ def get_record(bus_id: int) -> list[LineRecord]:
     connection = connect()
     cursor = connection.cursor()
 
-    sql = "SELECT num_linea, ult_fecha FROM bus_linea WHERE id = %s;"
+    sql = "SELECT num_linea, ult_fecha FROM bus_linea WHERE id = %s ORDER BY ult_fecha DESC;"
 
     cursor.execute(sql, (bus_id,))
     result = cursor.fetchall()
