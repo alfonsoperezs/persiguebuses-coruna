@@ -4,6 +4,7 @@ export default {
     'persiguebuses.common.error.record': 'Histórico do bus non dispoñible',
     'persiguebuses.common.backlink': 'Volver',
     'persiguebuses.common.refresh': 'Actualizar',
+    'persiguebuses.common.showMore': 'Ver máis',
     'persiguebuses.loading.bus': 'Perseguindo os buses...',
     'persiguebuses.loading.loading': 'Cargando',
 
