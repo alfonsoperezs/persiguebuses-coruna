@@ -2,11 +2,10 @@ import {FormattedMessage} from 'react-intl';
 import {useEffect, useState} from 'react';
 import backend from '../../../backend';
 import { useParams } from 'react-router-dom';
-import {Error, Loading} from '../../common'
+import {Error} from '../../common';
 
-const Details = () => {
+const Details = ({setLoading}) => {
     const {id} = useParams();
-    const [loading, setLoading] = useState(true);
     const [busDetails, setBusDetails] = useState({});
 
     useEffect(() => {
@@ -19,14 +18,6 @@ const Details = () => {
     if (busDetails.error){
         return(
             <Error type='details'/>
-        )
-    }    
-
-    if (loading){
-        return(
-            <div className='my-5'>
-                <Loading type='loading'/>
-            </div>
         )
     }
 

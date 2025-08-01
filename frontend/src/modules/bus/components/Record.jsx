@@ -5,10 +5,9 @@ import backend from "../../../backend";
 import Table from 'react-bootstrap/Table';
 import { FormattedMessage, FormattedDate } from 'react-intl';
 
-const Record = () => {
+const Record = ({setLoading}) => {
   const [record, setRecord] = useState([]);
   const { id } = useParams();
-  const [loading, setLoading] = useState(true);
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
@@ -21,7 +20,6 @@ const Record = () => {
     });
   }, []);
 
-  if (loading) return <Loading type='loading' />;
   if (!record || record.length === 0) return <Error type='record' />;
   if (record.error) return <Error type='position' />;
 
