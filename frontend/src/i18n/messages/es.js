@@ -10,8 +10,8 @@ export default {
 
     'persiguebuses.nav.bus': 'Buses',
 
-    'persiguebuses.home.text': 'Comprueba cuántos buses están circulando ahora',
-    'persiguebuses.home.button': 'Persíguelos',
+    'persiguebuses.home.text': 'Este bus se',
+    'persiguebuses.home.button': 'persigue',
 
     'persiguebuses.bus.total': 'Hay {totalBuses} buses circulando en este momento',
     'persiguebuses.bus.id': 'Id del bus',

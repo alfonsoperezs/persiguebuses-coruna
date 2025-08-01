@@ -10,8 +10,8 @@ export default {
 
     'persiguebuses.nav.bus': 'Buses',
 
-    'persiguebuses.home.text': 'See how many buses are working at the moment',
-    'persiguebuses.home.button': 'Chase them',
+    'persiguebuses.home.text': 'How many buses?',
+    'persiguebuses.home.button': 'Catch it',
 
     'persiguebuses.bus.total': 'There is {totalBuses} buses working at the moment',
     'persiguebuses.bus.id': 'Bus Id',
