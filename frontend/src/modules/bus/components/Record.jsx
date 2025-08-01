@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Error, Loading } from '../../common';
 import backend from "../../../backend";
 import Table from 'react-bootstrap/Table';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, FormattedDate } from 'react-intl';
 
 const Record = () => {
   const [record, setRecord] = useState([]);
@@ -44,7 +44,17 @@ const Record = () => {
           {visibles.map((item) => (
             <tr key={item.line_name}>
               <td className='text-center'>{item.line_name}</td>
-              <td className='text-center'>{item.last_time_worked}</td>
+              <td className='text-center'>
+                <FormattedDate
+                  value={new Date(item.last_time_worked)}
+                  year="numeric"
+                  month="2-digit"
+                  day="2-digit"
+                  hour="2-digit"
+                  minute="2-digit"
+                  hour12={false}
+                />
+              </td>
             </tr>
           ))}
         </tbody>
