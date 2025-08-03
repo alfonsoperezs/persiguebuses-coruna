@@ -1,6 +1,6 @@
 import Table from 'react-bootstrap/Table';
 import Alert from 'react-bootstrap/Alert';
-import {FormattedMessage} from 'react-intl';
+import {FormattedMessage, FormattedDate, FormattedTime } from 'react-intl';
 import {useEffect, useState} from 'react';
 import backend from '../../../backend';
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +13,8 @@ const ActiveBus = () => {
     const [totalBuses, setTotalBuses] = useState(0);
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const [reload, setReload] = useState(0)
+    const [reload, setReload] = useState(0);
+    const [lastReload, setLastReload] = useState(null);
     const itemsPerPage = 10;
 
     useEffect(() => {
@@ -31,6 +32,7 @@ const ActiveBus = () => {
                 setTotalBuses(data.total_buses);
                 setError(data.error);
                 setLoading(false);
+                setLastReload(new Date())
             });
         }
 
@@ -62,6 +64,9 @@ const ActiveBus = () => {
                 <div className='d-flex align-items-center justify-content-center flex-column m-height gap-3 mx-2'>
                     <h2 className="text-white text-center"><FormattedMessage id="persiguebuses.bus.total" values={{totalBuses}}/></h2>
                     <RefreshButton refreshAction={refresh}/>
+                    <p className='p-0 m-0 text-white'>
+                        <FormattedMessage id="persiguebuses.common.lastRefresh"/>: <FormattedDate value={lastReload} /> <FormattedTime value={lastReload} />
+                    </p>
                     <Table className="container" variant='dark'>
                         <thead>
                             <tr>
@@ -83,6 +88,11 @@ const ActiveBus = () => {
                             ))}
                         </tbody>
                     </Table>
+                    <div className='container'>
+                        <p className='text-white'>
+                            <FormattedMessage id='persiguebuses.common.source'/>: <a className='text-decoration-none text-danger' href="https://itranvias.com/">Itranvias</a>
+                        </p>
+                    </div>
                     <div className="d-flex justify-content-center">
                         <button
                             className="btn btn-secondary mx-2"
@@ -102,6 +112,8 @@ const ActiveBus = () => {
                             <FormattedMessage id="persiguebuses.pagination.next" />
                         </button>
                     </div>
+
+                    
                 </div>
             )
         } else{

@@ -39,8 +39,13 @@ const BusDetails = () => {
                                 <Record setLoading={setLoading2} />
                             </div>
                         </div>
-                        <div className='col d-flex justify-content-center'>
+                        <div className='col d-flex flex-column align-items-center justify-content-center'>
                             <Map setLoading={setLoading3} />
+                            <div className='d-flex justify-content-center mt-3'>
+                                <p className='text-white'>
+                                    <FormattedMessage id='persiguebuses.common.source'/>: <a className='text-decoration-none text-danger' href="https://itranvias.com/">Itranvias</a>
+                                </p>
+                            </div>                            
                         </div>
                     </div>
                     <div className='d-flex justify-content-center mt-4'>

@@ -196,3 +196,4 @@ cython_debug/
 
 mock.txt
 data.sql
+.vscode
