@@ -19,23 +19,26 @@ const ActiveBus = () => {
 
     useEffect(() => {
         const cached = sessionStorage.getItem('buses');
+        const cachedTimestamp = sessionStorage.getItem('buses_last_reload');
 
-        if (cached) {
+        if (cached && cachedTimestamp) {
             const data = JSON.parse(cached);
             setBuses(data.buses);
             setTotalBuses(data.total_buses);
+            setLastReload(new Date(cachedTimestamp));  // recuperar la fecha
             setLoading(false);
         } else {
             backend.buses.getBuses().then(data => {
+                const now = new Date();
                 sessionStorage.setItem('buses', JSON.stringify(data));
+                sessionStorage.setItem('buses_last_reload', now.toISOString());  // guardar fecha
                 setBuses(data.buses);
                 setTotalBuses(data.total_buses);
                 setError(data.error);
                 setLoading(false);
-                setLastReload(new Date())
+                setLastReload(now);  // actualizar el estado
             });
         }
-
     }, [reload]);
 
     const refresh = () => {
