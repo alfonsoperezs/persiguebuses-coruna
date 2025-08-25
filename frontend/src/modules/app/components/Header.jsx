@@ -14,7 +14,7 @@ const Header = () => {
                             Persiguebuses
                         </span>
                     </a>
-                    <Nav.Link href="/bus"><FormattedMessage id='persiguebuses.nav.bus'/></Nav.Link>  
+                    <Nav.Link href="/bus" className='text-black'><FormattedMessage id='persiguebuses.nav.bus'/></Nav.Link>  
                 </div>
             </nav>
         </header>

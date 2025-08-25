@@ -15,6 +15,9 @@ export default {
     'persiguebuses.home.text': 'Este bus se',
     'persiguebuses.home.button': 'persigue',
 
+    'persiguebuses.footer.privacy': 'Política de privacidade',
+    'persiguebuses.footer.users': 'Términos de uso',
+
     'persiguebuses.bus.total': 'Hai {totalBuses} buses circulando neste momento',
     'persiguebuses.bus.id': 'Id do bus',
     'persiguebuses.bus.line': 'Liña',
@@ -31,4 +34,5 @@ export default {
     'persiguebuses.pagination.previous': 'Anterior',
     'persiguebuses.pagination.next': 'Seguinte',
     'persiguebuses.pagination.page': 'Páxina',
+
 };
