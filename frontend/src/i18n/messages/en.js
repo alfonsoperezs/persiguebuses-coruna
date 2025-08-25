@@ -15,6 +15,9 @@ export default {
     'persiguebuses.home.text': 'How many buses?',
     'persiguebuses.home.button': 'Catch it',
 
+    'persiguebuses.footer.privacy': 'Privacy Policy',
+    'persiguebuses.footer.users': 'User Terms',
+
     'persiguebuses.bus.total': 'There is {totalBuses} buses working at the moment',
     'persiguebuses.bus.id': 'Bus Id',
     'persiguebuses.bus.line': 'Line',
